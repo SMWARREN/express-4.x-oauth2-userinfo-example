@@ -6,6 +6,15 @@ This example demonstrates how to use [Express](http://expressjs.com/) 4.x and
 [Passport](http://passportjs.org/) to authenticate users via SteemConnect.  Use
 this example as a starting point for your own web applications.
 
+
+![alt text](https://github.com/SMWARREN/express-4.x-oauth2-userinfo-example/blob/master/screenshots/1.png)
+
+![alt text](https://github.com/SMWARREN/express-4.x-oauth2-userinfo-example/blob/master/screenshots/2.png)
+
+![alt text](https://github.com/SMWARREN/express-4.x-oauth2-userinfo-example/blob/master/screenshots/3.png)
+
+![alt text](https://github.com/SMWARREN/express-4.x-oauth2-userinfo-example/blob/master/screenshots/4.png)
+
 ## Instructions
 
 To install this example on your computer, clone the repository and install
