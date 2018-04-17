@@ -1,15 +1,15 @@
 var express = require('express');
 var passport = require('passport');
-var Strategy = require('passport-oauth2-userinfo').Strategy;
+var Strategy = require('passport-steemconnect').Strategy;
 
 
 passport.use(new Strategy({
-    authorizationURL: 'http://127.0.0.1:3001/oauth2/authorize',
-    tokenURL: 'http://127.0.0.1:8080/token',
-    userProfileURL: 'http://127.0.0.1:8081/userinfo',
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/return'
+  authorizationURL: `https://steemconnect.com/oauth2/authorize`,
+  tokenURL: `https://steemconnect.com/oauth2/token`,
+  clientID: ``,
+  clientSecret: ``,
+  callbackURL: `http://localhost:3000/auth/oauth/oauth2/callback`,
+  scope: ['offline', 'vote'],
   },
   function(accessToken, refreshToken, profile, cb) {
     return cb(null, profile);
@@ -57,10 +57,10 @@ app.get('/login',
   });
 
 app.get('/login/oauth2',
-  passport.authenticate('oauth2'));
+  passport.authenticate('steemconnect'));
 
-app.get('/return', 
-  passport.authenticate('oauth2', { failureRedirect: '/login' }),
+app.get('/auth/oauth/oauth2/callback',
+  passport.authenticate('steemconnect', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
   });
